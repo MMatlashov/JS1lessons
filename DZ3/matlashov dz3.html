@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz2 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+//Нарисовать треугольник
+        var str1 = "";
+        for(var i = 1; i <= 7; i++){
+            str1 += "#";
+            console.log(str1);
+        }
+
+//Нарисовать "шахматную доску"
+
+        var str2 = "";
+        for(var i = 1; i <= 8; i++){
+            for(var j = 1; j <= 8; j++){
+                if(i % 2 == 0){
+                    if(j % 2 == 0){
+                        str2 += "# ";
+                    } else {
+                        str2 += "  ";
+                    }
+                } else {
+                    if(j % 2 == 0){
+                        str2 += "  ";
+                    } else {
+                        str2 += "# ";
+                    }
+                }
+            }
+            str2 +="\n";
+        }
+        alert(str2);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
