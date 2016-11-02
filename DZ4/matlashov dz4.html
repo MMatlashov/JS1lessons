@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz2 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+//Функция min()
+       function min(a, b){
+            return ((a < b) ? a : b); 
+       }
+       console.log("Минимум от 0 и 10:");
+       console.log(min(0, 10));
+       console.log("Минимум от 0 и -10:");
+       console.log(min(0, -10));
+
+//Считать "B"
+        function countBs(s){
+            var counter = 0;
+            for (var i = 0; i < s.length; i++){
+                if(s[i] == "B") counter ++;
+            }
+            return counter;
+        }
+        console.log("Считаем 'B' в фразе 'BiBim Bop':");
+        console.log(countBs("BiBim Bop"));
+
+//Считать символ
+        function countCh(s, ch){
+            var counter = 0;
+            for (var i = 0; i < s.length; i++){
+                if(s[i] == ch) counter ++;
+            }
+            return counter;
+        }
+        console.log("Считаем 'i' в фразе 'BiBim Bop':");
+        console.log(countCh("BiBim Bop", "i"));
+
+//Проверка на чётность
+        function isEven(a){
+             if(a < 0) a * -1; //если число отрицательное - сменить знак
+            if(a == 1) return false;
+            else if (a == 0) return true;
+            return isEven(a - 2);
+        }
+        console.log("Проверка на чётность чисел 50 и 75:");
+        console.log(isEven(50) + " и " + isEven(75));
+
+    </script>
+
+</body>
+</html>
+
+
+
+
