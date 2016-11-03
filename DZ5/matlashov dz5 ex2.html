@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz5 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+//Функция преобразования числа в объект
+        function intToObject(int){
+            var h = parseInt(int/100);
+            var t = parseInt(int/10) - 10 * h;
+            var u = int - 10 * t - 100 * h;
+            
+            var o = {};
+            o.hundreds = h;
+            o.tens = t;
+            o.units = u;
+            
+            return o;
+        }
+        
+        console.log(intToObject(prompt("введите число от 0 до 999") ) );
+        
+    </script>
+</body>
+</html>
+
+
+
+
