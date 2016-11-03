@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz5 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+//Функция преобразования цвета
+        function colorDecToHexHash(r, g, b){
+            var hexHash = {};
+            hexHash.red = r.toString(16);
+            hexHash.green = g.toString(16);
+            hexHash.blue = b.toString(16);
+            return(hexHash);
+        }
+         var red = +prompt("Красный (0 - 255):");
+         var green = +prompt("Зелёный (0 - 255):");
+         var blue = +prompt("Синий (0 - 255):");
+         console.log(colorDecToHexHash(red, green, blue));
+        
+    </script>
+</body>
+</html>
+
+
+
+
