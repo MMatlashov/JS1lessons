@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz5 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+//Функция преобразования числа в объект
+       function objectToQueryString(object){
+               return Object.keys(object).map(function(key) {
+                    return key + "=" + object[key];
+               }).join('&');
+       }
+        
+        console.log(objectToQueryString({user: 'Dmitry', password: 'pass', id: '1'} ) );
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
