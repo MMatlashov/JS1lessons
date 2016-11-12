@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>Шахматная доска</title>
+    </head>
+    <body>
+        <script>
+            chessTable = document.createElement('table');
+            chessTable.style.textAlign = 'Center';
+              chessTable.style.fontSize = '2em';
+            document.body.appendChild(chessTable);
+            for (var i = 0; i < 9; i++){
+                row = document.createElement('tr');
+                chessTable.appendChild(row);
+                alphabet = "abcdefgh";
+                for (var j= 0; j < 9; j++){
+                    cell = document.createElement('td');
+                    cell.style.width = '40px';
+                    cell.style.height = '40px';
+                    if (i != 8 && j != 0 && (i + j) % 2){
+                        cell.style.backgroundColor = 'grey';
+                    } else if(j == 0 && i != 8) {
+                        cell.textContent = 8 - i;
+                    } else if(j != 0 && i == 8){
+                        cell.textContent = alphabet[j-1];
+                    }
+                    putChessPiece(cell, i, j);
+                    chessTable.children[i].appendChild(cell);
+                }
+            }
+            
+           function putChessPiece (cell, i, j){
+               if (i == 0){
+                   switch(j){
+                        case 1: cell.innerHTML = '&#9820;';
+                        break;
+                        case 2: cell.innerHTML = '&#9822;';
+                        break;
+                        case 3: cell.innerHTML = '&#9821;';
+                        break;
+                        case 4: cell.innerHTML = '&#9819;';
+                        break;
+                        case 5: cell.innerHTML = '&#9818;';
+                        break;
+                        case 6: cell.innerHTML = '&#9821;';
+                        break;
+                        case 7: cell.innerHTML = '&#9822;';
+                        break;
+                        case 8: cell.innerHTML = '&#9820;';
+                        break;
+                   }
+               }
+               if (i == 1 && j != 0){
+                   cell.innerHTML = '&#9823;';
+               }
+               if (i == 6 && j != 0){
+                   cell.innerHTML = '&#9817;';
+               }
+               if (i == 7){
+                   switch(j){
+                        case 1: cell.innerHTML = '&#9814;';
+                        break;
+                        case 2: cell.innerHTML = '&#9816;';
+                        break;
+                        case 3: cell.innerHTML = '&#9815;';
+                        break;
+                        case 4: cell.innerHTML = '&#9813;';
+                        break;
+                        case 5: cell.innerHTML = '&#9812;';
+                        break;
+                        case 6: cell.innerHTML = '&#9815;';
+                        break;
+                        case 7: cell.innerHTML = '&#9816;';
+                        break;
+                        case 8: cell.innerHTML = '&#9814;';
+                        break;
+                   }
+               }
+           }
+        </script>
+    </body>
+</html>
