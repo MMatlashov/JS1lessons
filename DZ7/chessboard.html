@@ -16,8 +16,7 @@
                 alphabet = "abcdefgh";
                 for (var j= 0; j < 9; j++){
                     cell = document.createElement('td');
-                    cell.style.width = '40px';
-                    cell.style.height = '40px';
+                    cell.className = 'cell';
                     if (i != 8 && j != 0 && (i + j) % 2){
                         cell.style.backgroundColor = 'grey';
                     } else if(j == 0 && i != 8) {
@@ -28,6 +27,11 @@
                     putChessPiece(cell, i, j);
                     chessTable.children[i].appendChild(cell);
                 }
+            }
+            cells = document.getElementsByClassName('cell');
+            for (var i = 0; i < cells.length; i++){
+                cells[i].style.width = '50px';
+                cells[i].style.height = '50px';
             }
             
            function putChessPiece (cell, i, j){
