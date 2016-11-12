@@ -5,6 +5,7 @@
     <title>Dz7 Matlashov Mihail</title>
 </head>
 <body>
+   <div id="users"><div>
     <script>
         "use strict";
 
@@ -87,17 +88,26 @@
             row.innerHTML = '<div class = "col">' + user.firstName + '</div>' + 
                 '<div class = "col">' + user.lastName + '</div>' + '<div class="col">' +
                 user.birthDay + '</div>' + '<div class = "col">' + user.phones.join(', ') + 
-                '</div>' + '<div class = "del_btn" onclick = "delHandler(event)">X</div>';
+                '</div>' + '<div class = "del_btn" onclick = "delHandler(event, ' + user.id + ')">X</div>';
             return row;
         }
         
         window.onload = function(event){
-            var usersTable = users;
-            console.log(usersTable);
-            users.forEach(function(user){
-               document.body.appendChild(printUser(user)); 
-            });
+            reloadHTML();
         };
+        
+        function delHandler(e,id){
+            deleteUserById(id);
+            reloadHTML();
+        }
+        
+        function reloadHTML(){
+            var usersTable = document.getElementById("users");
+            usersTable.innerHTML = "";
+            users.forEach(function(user){
+            usersTable.appendChild(printUser(user)); 
+            });
+        }
 
     </script>
 
