@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ДЗ 6, задание 2</title>
+        <script>
+            "use strict";
+            
+            function reverseArray(a){
+                var arr = [];
+                for (var i = a.length - 1; i >= 0; i--){
+                    arr.push(a[i]);
+                }
+                return arr;
+            }
+            
+            function reverseArrayInPlace(a){
+                var arr = [];
+                while (a.length != 0){
+                    arr.push(a.shift());
+                }
+                while (arr.length != 0){
+                    a.push(arr.pop());
+                }
+                return a;
+            }
+            
+            var myArr = [1, 2, 3, 4, 5];
+            console.log(reverseArray(myArr));
+            console.log(myArr);
+            console.log("");
+            reverseArrayInPlace(myArr);
+            console.log(myArr);
+            
+            
+        </script>
+    </head>
+    <body></body>
+</html>

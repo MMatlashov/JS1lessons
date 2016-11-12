@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dz2 Matlashov Mihail</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        // User storage
+        var counter = 0;
+        var users = [{
+            id: ++counter,
+            firstName: 'Dmitry',
+            lastName: 'Kozlov',
+            birthDay: '16.07.1990',
+            phones: [
+                '89001234567',
+                '83431234567'
+            ] 
+            },{
+                id: ++counter,
+                firstName: 'Ivan',
+                lastName: 'Petrov',
+                birthDay: '08.06.1956',
+                phones: [
+                    '89001234567',
+                    '83431234567'
+                ] 
+            }
+        ];
+
+         function showUsers(users) {
+            for (var i = 0; i < users.length; ++i) {
+              console.log('ID:' + users[i].id + ' Имя: ' + users[i].firstName, ' Фамилия: ' + users[i].lastName, ' Дата рождения: ' + users[i].birthDay, ' Телефоны: ' + users[i].phones.join(', '));
+            }
+        }
+
+        function addUser(users) {
+            var user = {};
+            user.id = ++counter;
+            user.firstName = prompt('Введите имя:');
+            user.lastName = prompt('Введите фамилию:');
+            user.birthDay = prompt('Дату рождения:');
+            user.phones = [];
+            while (true) {
+                var phone = prompt('Номер телефона:(для выхода введите пустой номер)');
+                if (!phone) break;
+                user.phones.push(phone);
+            }
+            users.push(user);
+        }
+        
+        function deleteUserById(id){
+            for (var i = 0; i < users.length; ++i) {
+                if(users[i].id == id) users.splice(users.indexOf(users[i]), 1);
+            }
+        }
+
+        function csvFormat(users) {
+          return users.map(function(user) {
+            return Object.keys(user).map(function(key) { 
+              if(typeof user[key] == 'string' || typeof user[key] == 'number') return '"' + user[key] + '"'; 
+              else return user[key].map(function(phone) { return '"' + phone + '"'; }).join(';');
+            }).join(';');
+          }).join('\r\n');
+        }
+        
+        function search(value, users) {
+            var result = [];
+            var re = new RegExp(value, 'i');
+
+            users.forEach(function(item){
+                var findString =  item.firstName + ' ' + item.lastName;
+                if (re.test(findString)) {
+                    result.push(item);
+                }
+            })
+            return result;
+        }
+
+
+        addUser(users);
+        showUsers(users);
+        console.log("удаляем второго юзера");
+        deleteUserById(2);
+        showUsers(users);
+        console.log(csvFormat(users));
+        console.log(search("Kozlov", users));
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+

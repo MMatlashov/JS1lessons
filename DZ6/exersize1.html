@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ДЗ 6, задание 1</title>
+        <script>
+            "use strict";
+            
+            function arrayToList(a){    //turns array into list
+                var list = {};
+                list.value = a.shift();
+                list.rest = (a.length !=0)? arrayToList(a) : null;
+                return list;
+            }
+            
+            function listToArray(l){    //turns list into array of values
+                var arr = [l.value];
+                if(l.rest){
+                    arr = arr.concat(listToArray(l.rest));
+                }
+                return arr;
+            }
+           
+            function prepend(li, el){    //adds one element (el) in the beginning of the list (li)
+                var list = el;
+                if(el.rest){
+                    prepend(li, el.rest);
+                } else {
+                    list.rest = li;
+                }
+                return list;
+            }
+            
+            function nth(l, n){     //returns value of the nth element (starting form 1)
+                var arr = listToArray(l);
+                if (n <= 0 || n > arr.length) return;
+                return arr[n - 1];              
+            }
+            
+            var myList = arrayToList([1, 2, 3]);
+            console.log(myList);
+            console.log(listToArray(myList));
+            var myPrepList = {value: -1, rest: {value: 0, rest: null}};
+            var myList = prepend(myList, myPrepList);
+            console.log(listToArray(myList));
+            console.log(nth(myList, 3));
+            console.log(nth(myList, 6));
+            
+        </script>
+    </head>
+    <body></body>
+</html>
