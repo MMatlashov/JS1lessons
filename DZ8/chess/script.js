@@ -1,3 +1,5 @@
+"use strict";
+
 var alphabet = "abcdefgh"; //used for naming chessboard positions
 var currentSelect = "";
 var chessPieces = [];
