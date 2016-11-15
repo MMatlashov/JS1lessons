@@ -100,14 +100,14 @@ function onFieldClicked(e){// when field clicked
     currentSelect = e.target.id;
     e.target.style.border = "3px solid yellow";
     
-    takePiece(currentSelect);//if has a piece, place it to the taken area
+    movePiece(currentSelect, "take");//if has a piece, place it to the taken area
   }
 }
 
 function onTakenClicked(e){// when area for taken clicked
   if (e.target.className.indexOf("cell") !== -1){ //if cell was clicked
     var id = e.target.id.slice(0, 2);
-    restorePiece(id);//if has a piece, restore it from the taken area
+    movePiece(id, "restore");//if has a piece, restore it from the taken area
   }
 }
 
@@ -222,23 +222,15 @@ function placePieces(){//puts pieces on the chessboard
   }
 }
 
-function takePiece(pos){
+function movePiece(pos, action){ //take or restore the piece
   for(var i=0; i < chessPieces.length; i++){
     if(chessPieces[i].position == pos){
-      if (!chessPieces[i].taken){
+      
+      if (action == "take" && !chessPieces[i].taken){
         document.getElementById(pos).innerHTML = "";
         document.getElementById(pos+"taken").innerHTML = chessPieces[i].symbol;
         chessPieces[i].taken = true;
-      }
-      break;
-    }
-  }
-}
-
-function restorePiece(pos){
-  for(var i=0; i < chessPieces.length; i++){
-    if(chessPieces[i].position == pos){
-      if (chessPieces[i].taken){
+      } else if (action == "restore" && chessPieces[i].taken){
         document.getElementById(pos+"taken").innerHTML = "";
         document.getElementById(pos).innerHTML = chessPieces[i].symbol;
         chessPieces[i].taken = false;
