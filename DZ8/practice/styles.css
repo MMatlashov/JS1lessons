@@ -1,0 +1,34 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+#users{
+  margin: 20px 0px 0px 20px;
+}
+.col, .del_btn {
+  display:inline-block;
+  border: 1px solid grey;
+}
+.del_btn, .add_btn{
+  width: 30px;
+  text-align: center;
+} 
+.del_btn{
+  background-color: red;
+} 
+.add_btn{
+   background-color: green;
+   color: white;
+}
+.col{
+  width: 100px;
+}
+.col.phones{
+   width: 300px;
+}
+.col.hidden{
+  display: none;
+}
+.search_tf{
+  margin-bottom: 20px;
+}
